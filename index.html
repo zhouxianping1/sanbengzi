@@ -3,186 +3,147 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>三轮车表单广告脚本（果农版）- 3套</title>
+    <title>电动三轮车｜果农表单广告长文脚本（3套）</title>
     <style>
-      :root {
-        --bg: #0b0f14;
-        --card: #121824;
-        --text: #e9eef6;
-        --muted: #a9b4c3;
-        --line: rgba(255, 255, 255, 0.08);
-        --accent: #7dd3fc;
-        --accent2: #a7f3d0;
-        --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-        --radius: 16px;
+      :root{
+        --bg:#0b0f14;
+        --card:#121824;
+        --text:#e9eef6;
+        --muted:#a9b4c3;
+        --line:rgba(255,255,255,.10);
+        --accent:#7dd3fc;
+        --accent2:#a7f3d0;
+        --shadow:0 14px 36px rgba(0,0,0,.38);
+        --radius:16px;
       }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
-          "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei",
-          Arial, sans-serif;
-        background: radial-gradient(1200px 600px at 20% -10%, rgba(125, 211, 252, 0.15), transparent),
-          radial-gradient(900px 500px at 100% 10%, rgba(167, 243, 208, 0.12), transparent),
+      *{box-sizing:border-box}
+      body{
+        margin:0;
+        font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,
+          "PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",Arial,sans-serif;
+        background:
+          radial-gradient(1200px 640px at 18% -10%, rgba(125,211,252,.14), transparent),
+          radial-gradient(1000px 600px at 100% 10%, rgba(167,243,208,.12), transparent),
           var(--bg);
-        color: var(--text);
-        line-height: 1.6;
+        color:var(--text);
+        line-height:1.7;
       }
-      .wrap {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 28px 16px 60px;
+      .wrap{max-width:1020px;margin:0 auto;padding:28px 16px 64px}
+      header{display:grid;gap:10px;margin-bottom:14px}
+      h1{margin:0;font-size:22px;letter-spacing:.2px}
+      .sub{color:var(--muted);font-size:13px}
+      .toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:6px}
+      .btn{
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        color:var(--text);
+        padding:10px 12px;
+        border-radius:12px;
+        cursor:pointer;
+        font-size:13px;
+        transition:transform .06s ease, background .2s ease, border-color .2s ease;
+        user-select:none;
       }
-      header {
-        display: grid;
-        gap: 10px;
-        margin-bottom: 18px;
+      .btn:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}
+      .btn:active{transform:translateY(1px)}
+      .btn.primary{border-color:rgba(125,211,252,.35)}
+      .btn.ok{border-color:rgba(167,243,208,.35)}
+      .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+      .chip{
+        font-size:12px;
+        padding:6px 10px;
+        border-radius:999px;
+        border:1px solid var(--line);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
       }
-      h1 {
-        font-size: 22px;
-        margin: 0;
-        letter-spacing: 0.2px;
+      .grid{display:grid;gap:14px;margin-top:16px}
+      details.card{
+        background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+        border:1px solid var(--line);
+        border-radius:var(--radius);
+        padding:16px;
+        box-shadow:var(--shadow);
       }
-      .sub {
-        color: var(--muted);
-        font-size: 13px;
+      summary{cursor:pointer;list-style:none}
+      summary::-webkit-details-marker{display:none}
+      .titleRow{display:grid;gap:8px}
+      h2{margin:0;font-size:16px;letter-spacing:.2px}
+      .meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+      .tag{
+        font-size:12px;
+        padding:4px 10px;
+        border-radius:999px;
+        border:1px solid rgba(255,255,255,.12);
+        background:rgba(255,255,255,.03);
+        color:var(--muted);
       }
-      .toolbar {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        margin-top: 8px;
+      .tag.accent{border-color:rgba(125,211,252,.28);color:#cdefff}
+      .tag.accent2{border-color:rgba(167,243,208,.28);color:#d6fff0}
+      .sectionTitle{
+        margin:14px 0 8px;
+        font-size:12px;
+        color:var(--muted);
+        text-transform:uppercase;
+        letter-spacing:.12em;
       }
-      .btn {
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--text);
-        padding: 10px 12px;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 13px;
-        transition: transform .06s ease, background .2s ease, border-color .2s ease;
-        user-select: none;
+      .lines{display:grid;gap:10px}
+      .pair{
+        border:1px solid rgba(255,255,255,.08);
+        background:rgba(0,0,0,.16);
+        border-radius:14px;
+        padding:10px 12px;
       }
-      .btn:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,.14); }
-      .btn:active { transform: translateY(1px); }
-      .btn.primary { border-color: rgba(125, 211, 252, 0.35); }
-      .btn.ok { border-color: rgba(167, 243, 208, 0.35); }
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+      .pair.hook{
+        border-color:rgba(125,211,252,.28);
+        background:rgba(125,211,252,.06);
       }
-      .chip {
-        font-size: 12px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        background: rgba(255, 255, 255, 0.03);
-        color: var(--muted);
+      .pair.cta{
+        border-color:rgba(167,243,208,.28);
+        background:rgba(167,243,208,.06);
       }
-      .grid {
-        display: grid;
-        gap: 14px;
-        margin-top: 18px;
+      .zh{font-size:14px;color:var(--text)}
+      .vi{font-size:14px;color:var(--muted);margin-top:4px}
+      .hint{
+        margin-top:12px;
+        color:var(--muted);
+        font-size:12px;
+        border-top:1px dashed rgba(255,255,255,.12);
+        padding-top:12px;
       }
-      .card {
-        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        padding: 16px;
-        box-shadow: var(--shadow);
+      .mono{
+        font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
       }
-      .card h2 {
-        margin: 0 0 8px;
-        font-size: 16px;
-        letter-spacing: 0.2px;
+      .hide-vi .vi{display:none}
+      .hide-zh .zh{display:none}
+      footer{
+        margin-top:16px;
+        color:var(--muted);
+        font-size:12px;
+        opacity:.95;
       }
-      .meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        align-items: center;
-        margin: 6px 0 14px;
+      .note{
+        border:1px solid rgba(255,255,255,.10);
+        border-radius:14px;
+        padding:12px 12px;
+        background:rgba(255,255,255,.03);
+        margin-top:14px;
       }
-      .tag {
-        font-size: 12px;
-        padding: 4px 10px;
-        border-radius: 999px;
-        border: 1px solid rgba(255,255,255,.12);
-        background: rgba(255,255,255,.03);
-        color: var(--muted);
-      }
-      .tag.accent { border-color: rgba(125, 211, 252, .28); color: #cdefff; }
-      .tag.accent2 { border-color: rgba(167, 243, 208, .28); color: #d6fff0; }
-      .sectionTitle {
-        margin: 14px 0 8px;
-        font-size: 12px;
-        color: var(--muted);
-        text-transform: uppercase;
-        letter-spacing: .12em;
-      }
-      .lines {
-        display: grid;
-        gap: 10px;
-        margin-top: 6px;
-      }
-      .pair {
-        border: 1px solid rgba(255,255,255,.08);
-        background: rgba(0,0,0,.15);
-        border-radius: 14px;
-        padding: 10px 12px;
-      }
-      .zh {
-        font-size: 14px;
-        color: var(--text);
-      }
-      .vi {
-        font-size: 14px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-      .pair.hook {
-        border-color: rgba(125, 211, 252, .28);
-        background: rgba(125, 211, 252, 0.06);
-      }
-      .pair.cta {
-        border-color: rgba(167, 243, 208, .28);
-        background: rgba(167, 243, 208, 0.06);
-      }
-      .hint {
-        color: var(--muted);
-        font-size: 12px;
-        margin-top: 12px;
-        border-top: 1px dashed rgba(255,255,255,.12);
-        padding-top: 12px;
-      }
-      .mono {
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      }
-      .hide-vi .vi { display: none; }
-      .hide-zh .zh { display: none; }
-      footer {
-        margin-top: 18px;
-        color: var(--muted);
-        font-size: 12px;
-        opacity: .95;
-      }
+      .note strong{color:var(--text)}
     </style>
   </head>
 
   <body>
     <div class="wrap">
       <header>
-        <h1>电动三轮车｜果农表单广告脚本（可直接投）</h1>
+        <h1>电动三轮车｜果农表单广告长文脚本（3套）</h1>
         <div class="sub">
-          每条 45–60 秒｜真人口播 + 混剪｜一行中文一行越南语｜适用 TikTok / Facebook Lead Form
+          适用：TikTok / Facebook Lead Form｜每条 55–60 秒口播 + 混剪｜一行中文一行越南语｜逻辑密度对齐“工厂权威版”
         </div>
 
         <div class="toolbar">
-          <button class="btn primary" id="copyAllBtn">复制全部脚本</button>
-          <button class="btn" id="copySelectedBtn">复制当前可见脚本</button>
+          <button class="btn primary" id="copyAllBtn">复制全部</button>
+          <button class="btn" id="copyVisibleBtn">复制当前展开</button>
           <button class="btn ok" id="toggleViBtn">隐藏/显示 越南语</button>
           <button class="btn ok" id="toggleZhBtn">隐藏/显示 中文</button>
           <button class="btn" id="expandAllBtn">展开全部</button>
@@ -190,184 +151,221 @@
         </div>
 
         <div class="chips">
-          <span class="chip">剪辑建议：前3秒正脸狠钩子</span>
-          <span class="chip">中段大量B-roll：果园/装货/烂路</span>
-          <span class="chip">不要价格/参数/品牌Logo</span>
-          <span class="chip">CTA：只填用途/地区/预算</span>
+          <span class="chip">前3秒：正脸 + 狠问句</span>
+          <span class="chip">中段：果园/烂路/装货B-roll大量混剪</span>
+          <span class="chip">不讲价格、不讲参数、不讲品牌故事</span>
+          <span class="chip">CTA：只让填用途/地区/预算（筛真果农）</span>
+        </div>
+
+        <div class="note">
+          <strong>表单字段建议：</strong>用途（肥料/咖啡/水果/稻谷）｜地区（省/县）｜每天跑多久｜预算｜电话/ Zalo
         </div>
       </header>
 
       <div class="grid" id="cards">
-        <!-- Card 1 -->
-        <details class="card script" data-title="版本① 做果园的，一定听得懂" open>
-          <summary style="cursor:pointer; list-style:none;">
-            <h2>✅ 表单广告版本 ①｜《做果园的，一定听得懂》</h2>
-            <div class="meta">
-              <span class="tag accent">前3秒狠钩子</span>
-              <span class="tag">偏拉量</span>
-              <span class="tag">45–60秒</span>
+
+        <!-- Script 1 -->
+        <details class="card script" data-title="版本① 果农一定会算的那笔账（长文版）" open>
+          <summary>
+            <div class="titleRow">
+              <h2>✅ 表单广告版本 ①｜《果农一定会算的那笔账》（长文版）</h2>
+              <div class="meta">
+                <span class="tag accent">强认知打断</span>
+                <span class="tag">偏拉量</span>
+                <span class="tag">55–60秒</span>
+              </div>
             </div>
           </summary>
 
           <div class="sectionTitle">脚本正文</div>
           <div class="lines">
+
             <div class="pair hook">
-              <div class="zh">做果园的，你买三轮车只看价格吗？</div>
-              <div class="vi">Làm vườn mà mua xe ba bánh, bạn chỉ nhìn giá thôi sao?</div>
+              <div class="zh">做果园的朋友，我先问你一句实在话：你现在买三轮车，真的算清楚“用车成本”了吗？</div>
+              <div class="vi">Làm vườn ơi, tôi hỏi thật một câu: bạn đã tính kỹ “chi phí dùng xe ba bánh” chưa?</div>
             </div>
 
             <div class="pair">
-              <div class="zh">我一开始也觉得，三轮车差不多就行。</div>
-              <div class="vi">Lúc đầu tôi cũng nghĩ xe ba bánh cái nào cũng giống nhau.</div>
+              <div class="zh">很多人第一反应就是看价格，觉得便宜就先用着，贵的以后再说。</div>
+              <div class="vi">Nhiều người nhìn giá trước, thấy rẻ là mua, đắt thì để sau.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">后来才发现，便宜的车，天天浪费时间。</div>
-              <div class="vi">Sau mới biết, xe rẻ là xe làm mất thời gian mỗi ngày.</div>
+              <div class="zh">但真正做果园的人都知道，车不是买来看的，是每天拉货、干活用的。</div>
+              <div class="vi">Người làm vườn đều biết, xe không phải để nhìn, mà để chở hàng và làm việc mỗi ngày.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">这辆车在果园地不平的地方跑，也很稳。</div>
-              <div class="vi">Chiếc này chạy trong vườn gồ ghề vẫn rất ổn.</div>
+              <div class="zh">我以前也用过那种旧摩托改的三轮车，刚买的时候确实便宜。</div>
+              <div class="vi">Trước đây tôi cũng từng dùng xe ba bánh chế từ xe máy cũ, lúc mua thì rẻ thật.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">拉肥料、拉咖啡、拉水果，一趟搞定。</div>
-              <div class="vi">Chở phân, chở cà phê, chở trái cây, một chuyến là xong.</div>
+              <div class="zh">但用不了多久问题就来了：方向把开始抖，地一不平就不好控制。</div>
+              <div class="vi">Nhưng dùng một thời gian là thấy vấn đề: tay lái bắt đầu lắc, đường xấu là khó điều khiển.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">不用自己扛，快很多，也轻松很多。</div>
-              <div class="vi">Không phải vác tay, nhanh hơn và khỏe hơn nhiều.</div>
+              <div class="zh">装得多一点就担心翻车，跑得慢，还得分好几趟。</div>
+              <div class="vi">Chở nặng chút là lo lật, chạy chậm, còn phải đi nhiều chuyến.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">对我们做果园的人来说，重要的不是便宜，是好不好用。</div>
-              <div class="vi">Với người làm vườn, quan trọng không phải rẻ, mà là dùng có tiện không.</div>
+              <div class="zh">后来我才明白：便宜的不是省钱，是把时间和力气一点点浪费掉。</div>
+              <div class="vi">Sau này tôi mới hiểu: xe rẻ không phải tiết kiệm tiền, mà là làm mất thời gian và sức lực mỗi ngày.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">现在用这辆电动三轮车，在果园地不平的地方跑也很稳，方向把不抖，心里踏实。</div>
+              <div class="vi">Giờ dùng xe ba bánh điện này, chạy trong vườn gồ ghề vẫn ổn, tay lái không lắc, chạy rất yên tâm.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">拉肥料、拉咖啡、拉水果，一趟能解决的事，不用跑两三趟。</div>
+              <div class="vi">Chở phân, chở cà phê, chở trái cây, việc làm được trong 1 chuyến thì không cần đi 2–3 chuyến.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">对我们做果园的人来说，真正值钱的不是车本身，而是每天干活顺不顺、累不累、能不能按时把货拉回家。</div>
+              <div class="vi">Với người làm vườn, cái đáng tiền không phải cái xe, mà là làm việc mỗi ngày có thuận không, có mệt không, có chở hàng về kịp không.</div>
             </div>
 
             <div class="pair cta">
-              <div class="zh">你填一下你果园做什么、在什么地方，我告诉你这种车适不适合你。</div>
-              <div class="vi">Bạn điền loại vườn bạn làm và khu vực, tôi nói cho bạn biết xe này có hợp hay không.</div>
+              <div class="zh">如果你也是做果园的，填一下你主要种什么、在什么地区、一天大概跑多久，我帮你看看这种三轮车到底适不适合你。</div>
+              <div class="vi">Nếu bạn cũng làm vườn, hãy điền loại cây trồng, khu vực và mỗi ngày chạy khoảng bao lâu, tôi giúp bạn xem xe này có hợp hay không.</div>
             </div>
+
           </div>
 
-          <div class="hint">
-            <span class="mono">镜头提示：</span>开头正脸（3秒）→ 旧车/手势对比（5秒）→ 果园烂路行驶（10秒）→ 装肥/咖啡/水果（20秒）→ 结尾正脸CTA（8秒）
-          </div>
+          <div class="hint"><span class="mono">镜头提示：</span>正脸狠问句（3秒）→ 旧车手势/抖动对比（8秒）→ 果园烂路行驶稳定镜头（12秒）→ 装货（肥料/咖啡/水果）连切（20秒）→ 结尾正脸CTA（10秒）</div>
         </details>
 
-        <!-- Card 2 -->
-        <details class="card script" data-title="版本② 算账型果农">
-          <summary style="cursor:pointer; list-style:none;">
-            <h2>✅ 表单广告版本 ②｜《算账型果农》</h2>
-            <div class="meta">
-              <span class="tag accent">前3秒狠钩子</span>
-              <span class="tag">偏筛选理性果农</span>
-              <span class="tag">45–60秒</span>
+        <!-- Script 2 -->
+        <details class="card script" data-title="版本② 真正会算账的果农（长文版）">
+          <summary>
+            <div class="titleRow">
+              <h2>✅ 表单广告版本 ②｜《真正会算账的果农》（长文版）</h2>
+              <div class="meta">
+                <span class="tag accent">理性钩子</span>
+                <span class="tag">偏筛选</span>
+                <span class="tag">55–60秒</span>
+              </div>
             </div>
           </summary>
 
           <div class="sectionTitle">脚本正文</div>
           <div class="lines">
+
             <div class="pair hook">
-              <div class="zh">一辆车如果每天帮你干活，你觉得它贵吗？</div>
-              <div class="vi">Một chiếc xe ngày nào cũng giúp bạn làm việc, bạn thấy nó đắt không?</div>
+              <div class="zh">一辆车如果每天都帮你干活，你觉得它贵，还是便宜？</div>
+              <div class="vi">Một chiếc xe ngày nào cũng giúp bạn làm việc, bạn thấy nó đắt hay rẻ?</div>
             </div>
 
             <div class="pair">
-              <div class="zh">我做果园，一天来回跑很多趟。</div>
-              <div class="vi">Tôi làm vườn, mỗi ngày đi tới đi lui rất nhiều.</div>
+              <div class="zh">我做果园很多年了，每天不是在搬东西，就是在准备搬东西。</div>
+              <div class="vi">Tôi làm vườn nhiều năm rồi, ngày nào cũng chở đồ hoặc chuẩn bị chở đồ.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">以前靠人搬，又慢又累。</div>
-              <div class="vi">Trước đây vác tay, vừa chậm vừa mệt.</div>
+              <div class="zh">以前没有合适的车，靠人搬，靠摩托拉：一趟拉不了多少，时间花了，力气也花了。</div>
+              <div class="vi">Trước đây không có xe phù hợp, toàn vác tay hoặc chở bằng xe máy: một chuyến chở không được bao nhiêu, tốn thời gian mà cũng tốn sức.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">现在一趟就能拉好几包。</div>
-              <div class="vi">Giờ một chuyến là chở được mấy bao liền.</div>
+              <div class="zh">后来我开始认真算一笔账：不是车多少钱，而是一天能省多少趟、少累多少次、货能不能更快回到家。</div>
+              <div class="vi">Sau đó tôi bắt đầu tính kỹ: không phải xe bao nhiêu tiền, mà là mỗi ngày tiết kiệm được bao nhiêu chuyến, đỡ mệt bao nhiêu lần và chở hàng về nhanh hơn không.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">省的是时间，省的也是力气。</div>
-              <div class="vi">Tiết kiệm thời gian, cũng tiết kiệm sức.</div>
+              <div class="zh">现在这辆电动三轮车，一趟就能拉好几包，跑起来稳，路差一点也不怕。</div>
+              <div class="vi">Giờ xe ba bánh điện này, một chuyến chở được mấy bao liền, chạy ổn, đường xấu chút cũng không sợ.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">所以我买这辆车，不是为了便宜，是为了每天干活顺一点。</div>
-              <div class="vi">Vì vậy tôi mua xe này không phải vì rẻ, mà vì làm việc mỗi ngày thuận hơn.</div>
+              <div class="zh">方向把稳，装多一点也放心；你不需要跑太快，但你需要它每天都能干活、不掉链子。</div>
+              <div class="vi">Tay lái vững, chở nặng hơn cũng yên tâm; bạn không cần chạy nhanh, nhưng cần nó ngày nào cũng làm việc được và không “bỏ cuộc”.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">算下来你会发现：它不是让你多花钱，而是让你每天少浪费钱——少跑几趟、少雇人搬、少修几次。</div>
+              <div class="vi">Tính ra mới thấy: xe này không làm bạn tốn tiền hơn, mà là bớt lãng phí mỗi ngày — đi ít chuyến hơn, thuê ít người vác hơn, sửa ít lần hơn.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">所以我买这辆车，不是为了便宜，是为了每天干活顺一点，赚到的钱也更踏实。</div>
+              <div class="vi">Vì vậy tôi mua xe này không phải vì rẻ, mà vì làm việc mỗi ngày thuận hơn và kiếm tiền cũng yên tâm hơn.</div>
             </div>
 
             <div class="pair cta">
-              <div class="zh">你填一下你的用途和预算，我帮你算清楚值不值得。</div>
-              <div class="vi">Bạn điền mục đích sử dụng và ngân sách, tôi giúp bạn tính có đáng hay không.</div>
+              <div class="zh">你填一下你的用途、地区、预算，我帮你把这笔账算清楚：买哪种最合适，别花冤枉钱。</div>
+              <div class="vi">Bạn điền mục đích sử dụng, khu vực và ngân sách, tôi giúp bạn tính rõ: nên mua loại nào hợp nhất để khỏi tốn tiền oan.</div>
             </div>
+
           </div>
 
-          <div class="hint">
-            <span class="mono">剪辑节奏：</span>快问快答 + 多用“对比画面”（人力搬运 vs 车一趟拉多包），适合筛出认真干活、会算账的人。
-          </div>
+          <div class="hint"><span class="mono">镜头提示：</span>正脸提问（3秒）→ 果园搬运高频镜头（10秒）→ “一趟拉多包”连续特写（15秒）→ 烂路行驶稳定镜头（10秒）→ 结尾正脸CTA（12秒）</div>
         </details>
 
-        <!-- Card 3 -->
-        <details class="card script" data-title="版本③ 真实吐槽反转型">
-          <summary style="cursor:pointer; list-style:none;">
-            <h2>✅ 表单广告版本 ③｜《真实吐槽反转型》</h2>
-            <div class="meta">
-              <span class="tag accent">前3秒狠钩子</span>
-              <span class="tag">偏信任/口碑</span>
-              <span class="tag">45–60秒</span>
+        <!-- Script 3 -->
+        <details class="card script" data-title="版本③ 走过弯路的果农（长文版）">
+          <summary>
+            <div class="titleRow">
+              <h2>✅ 表单广告版本 ③｜《走过弯路的果农》（长文版）</h2>
+              <div class="meta">
+                <span class="tag accent">吐槽反转</span>
+                <span class="tag">偏信任</span>
+                <span class="tag">55–60秒</span>
+              </div>
             </div>
           </summary>
 
           <div class="sectionTitle">脚本正文</div>
           <div class="lines">
+
             <div class="pair hook">
-              <div class="zh">说实话，我以前也买错过三轮车。</div>
-              <div class="vi">Nói thật, trước đây tôi cũng từng mua nhầm xe ba bánh.</div>
+              <div class="zh">说实话，我以前也买错过三轮车，当时只想着便宜，结果后面更贵。</div>
+              <div class="vi">Nói thật, trước đây tôi cũng từng mua nhầm xe ba bánh, lúc đó chỉ nghĩ rẻ, nhưng sau này lại tốn hơn.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">方向把抖，装多了还怕倒。</div>
-              <div class="vi">Tay lái lắc, chở nặng còn sợ lật.</div>
+              <div class="zh">刚开始觉得能拉就行，没想到用一段时间：方向把抖、车不稳，装多了心里一直不踏实。</div>
+              <div class="vi">Lúc đầu nghĩ chở được là được, ai ngờ dùng một thời gian: tay lái lắc, xe không vững, chở nặng là cứ lo.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">后来换了这辆，用起来 khác liền。</div>
-              <div class="vi">Sau đó đổi sang chiếc này, dùng khác liền.</div>
+              <div class="zh">果园路本来就不好，车再不稳，只会更累：跑得慢，分好几趟，今天干不完明天继续。</div>
+              <div class="vi">Đường trong vườn vốn đã xấu, xe không ổn thì càng mệt: chạy chậm, đi nhiều chuyến, hôm nay không xong thì mai làm tiếp.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">地再不平，跑起来也稳。</div>
-              <div class="vi">Đường trong vườn có xấu mấy, chạy vẫn ổn.</div>
+              <div class="zh">后来换了这辆电动三轮车，一用就感觉不一样：地不平也能好好跑，方向把稳，装多一点也放心。</div>
+              <div class="vi">Sau đó đổi sang xe ba bánh điện này, dùng là thấy khác: đường gồ ghề vẫn chạy tốt, tay lái vững, chở nặng hơn cũng yên tâm.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">肥料、咖啡、稻谷，都能拉。</div>
-              <div class="vi">Phân, cà phê, lúa, cái gì cũng chở được.</div>
+              <div class="zh">不管是肥料、咖啡还是稻谷，都能轻松拉回家；不用扛那么多，人也没那么累。</div>
+              <div class="vi">Dù là phân, cà phê hay lúa, đều chở về nhà nhẹ nhàng; không phải vác nhiều nên cũng đỡ mệt.</div>
             </div>
 
             <div class="pair">
-              <div class="zh">我现在只后悔一件事，换得太晚。</div>
-              <div class="vi">Giờ tôi chỉ hối hận một điều, đổi xe quá trễ.</div>
+              <div class="zh">现在回头看，我后悔的不是买这辆车，而是当初换得太晚：早换一个月，我就少累很多天。</div>
+              <div class="vi">Giờ nhìn lại, tôi không hối hận vì mua xe này, mà hối hận vì đổi quá trễ: đổi sớm 1 tháng là đỡ mệt nhiều ngày.</div>
             </div>
 
             <div class="pair cta">
-              <div class="zh">你现在填一下使用场景，别再像我一样走弯路。</div>
-              <div class="vi">Bạn điền nhu cầu sử dụng, đừng đi đường vòng như tôi nữa.</div>
+              <div class="zh">如果你现在也在考虑买三轮车，先填一下你的实际用途、地区和预算，我帮你避坑：别像我一样走弯路。</div>
+              <div class="vi">Nếu bạn đang cân nhắc mua xe ba bánh, hãy điền nhu cầu thực tế, khu vực và ngân sách, tôi giúp bạn tránh “bẫy” — đừng đi đường vòng như tôi.</div>
             </div>
+
           </div>
 
-          <div class="hint">
-            <span class="mono">拍摄要点：</span>“吐槽”一定要像真事（表情、停顿、摇头），中段用烂路行驶稳定镜头做反转证据，结尾CTA温和但明确。
-          </div>
+          <div class="hint"><span class="mono">镜头提示：</span>开头“买错更贵”强表情（3秒）→ 旧车抖动/担心翻车镜头（10秒）→ 反转：新车烂路稳定镜头（12秒）→ 装货回家连续剪（20秒）→ 结尾CTA（10秒）</div>
         </details>
+
       </div>
 
       <footer>
-        提示：点击每个标题可折叠/展开；投放用 Lead Form 时，表单字段建议：用途（果园/化肥/咖啡/稻谷）｜地区（省/县）｜预算｜联系电话。
+        小提示：Lead Form 里可以加一个选择题（用途：肥料/咖啡/水果/稻谷/饲料），会显著提高线索质量。
       </footer>
     </div>
 
@@ -375,34 +373,33 @@
       const root = document.documentElement;
       const cards = document.querySelectorAll("details.script");
       const copyAllBtn = document.getElementById("copyAllBtn");
-      const copySelectedBtn = document.getElementById("copySelectedBtn");
+      const copyVisibleBtn = document.getElementById("copyVisibleBtn");
       const toggleViBtn = document.getElementById("toggleViBtn");
       const toggleZhBtn = document.getElementById("toggleZhBtn");
       const expandAllBtn = document.getElementById("expandAllBtn");
       const collapseAllBtn = document.getElementById("collapseAllBtn");
 
-      function getTextFromDetails(detailsEl) {
+      function getText(detailsEl){
         const title = detailsEl.getAttribute("data-title") || "脚本";
         const pairs = detailsEl.querySelectorAll(".pair");
         let out = `【${title}】\n`;
-        pairs.forEach((p) => {
+        pairs.forEach(p=>{
           const zh = p.querySelector(".zh")?.innerText?.trim() || "";
           const vi = p.querySelector(".vi")?.innerText?.trim() || "";
-          if (!root.classList.contains("hide-zh") && zh) out += zh + "\n";
-          if (!root.classList.contains("hide-vi") && vi) out += vi + "\n";
+          if(!root.classList.contains("hide-zh") && zh) out += zh + "\n";
+          if(!root.classList.contains("hide-vi") && vi) out += vi + "\n";
           out += "\n";
         });
         return out.trim() + "\n\n";
       }
 
-      async function copyToClipboard(text) {
-        try {
+      async function copy(text){
+        try{
           await navigator.clipboard.writeText(text);
           alert("已复制到剪贴板 ✅");
-        } catch (e) {
-          // fallback
-          const ta = document.createElement("textarea");
-          ta.value = text;
+        }catch(e){
+          const ta=document.createElement("textarea");
+          ta.value=text;
           document.body.appendChild(ta);
           ta.select();
           document.execCommand("copy");
@@ -411,36 +408,25 @@
         }
       }
 
-      copyAllBtn.addEventListener("click", () => {
-        let text = "电动三轮车｜果农表单广告脚本（3套）\n\n";
-        cards.forEach((c) => (text += getTextFromDetails(c)));
-        copyToClipboard(text.trim());
+      copyAllBtn.addEventListener("click", ()=>{
+        let text="电动三轮车｜果农表单广告长文脚本（3套）\n\n";
+        cards.forEach(c=>text+=getText(c));
+        copy(text.trim());
       });
 
-      copySelectedBtn.addEventListener("click", () => {
-        // “可见脚本”= 当前展开的 details
-        const opened = Array.from(cards).filter((c) => c.open);
-        const use = opened.length ? opened : Array.from(cards);
-        let text = "电动三轮车｜果农表单广告脚本（当前可见）\n\n";
-        use.forEach((c) => (text += getTextFromDetails(c)));
-        copyToClipboard(text.trim());
+      copyVisibleBtn.addEventListener("click", ()=>{
+        const opened=Array.from(cards).filter(c=>c.open);
+        const use=opened.length?opened:Array.from(cards);
+        let text="电动三轮车｜果农表单广告长文脚本（当前展开）\n\n";
+        use.forEach(c=>text+=getText(c));
+        copy(text.trim());
       });
 
-      toggleViBtn.addEventListener("click", () => {
-        root.classList.toggle("hide-vi");
-      });
+      toggleViBtn.addEventListener("click", ()=>root.classList.toggle("hide-vi"));
+      toggleZhBtn.addEventListener("click", ()=>root.classList.toggle("hide-zh"));
 
-      toggleZhBtn.addEventListener("click", () => {
-        root.classList.toggle("hide-zh");
-      });
-
-      expandAllBtn.addEventListener("click", () => {
-        cards.forEach((c) => (c.open = true));
-      });
-
-      collapseAllBtn.addEventListener("click", () => {
-        cards.forEach((c) => (c.open = false));
-      });
+      expandAllBtn.addEventListener("click", ()=>cards.forEach(c=>c.open=true));
+      collapseAllBtn.addEventListener("click", ()=>cards.forEach(c=>c.open=false));
     </script>
   </body>
 </html>
