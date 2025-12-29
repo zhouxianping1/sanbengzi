@@ -1,0 +1,794 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>水槽品牌官网｜一页式落地页（赛博朋克风）</title>
+  <style>
+    :root{
+      --bg:#070816;
+      --panel:#0b0d22cc;
+      --panel2:#0b0d22aa;
+      --grid:#1a1d44;
+      --txt:#e9ecff;
+      --muted:#a7b0ff;
+      --neon1:#00e5ff;
+      --neon2:#ff2bd6;
+      --neon3:#9bff5a;
+      --warn:#ffcc00;
+      --shadow: 0 0 22px rgba(0,229,255,.25), 0 0 34px rgba(255,43,214,.12);
+      --radius: 18px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC","Microsoft YaHei", Arial, sans-serif;
+      color:var(--txt);
+      background:
+        radial-gradient(1200px 600px at 18% 10%, rgba(255,43,214,.18), transparent 60%),
+        radial-gradient(900px 520px at 85% 18%, rgba(0,229,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 50% 90%, rgba(155,255,90,.10), transparent 60%),
+        linear-gradient(180deg, #040513 0%, #070816 30%, #040513 100%);
+      overflow-x:hidden;
+    }
+
+    /* 赛博网格 */
+    .grid-bg{
+      position:fixed; inset:-2px;
+      background:
+        linear-gradient(to right, rgba(26,29,68,.55) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26,29,68,.55) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity:.25;
+      pointer-events:none;
+      transform: perspective(900px) rotateX(58deg) translateY(-140px);
+      filter: blur(.2px);
+    }
+
+    /* 顶部导航 */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,8,22,.88), rgba(7,8,22,.55));
+      border-bottom: 1px solid rgba(0,229,255,.18);
+    }
+    .wrap{ max-width:1120px; margin:0 auto; padding:0 18px; }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none; color:var(--txt);
+      min-width:220px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius:12px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(0,229,255,.9), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(255,43,214,.9), transparent 55%),
+        linear-gradient(135deg, rgba(11,13,34,1), rgba(11,13,34,.6));
+      border: 1px solid rgba(0,229,255,.35);
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:7px;
+      border-radius:10px;
+      border: 1px dashed rgba(155,255,90,.55);
+      opacity:.7;
+    }
+    .brand strong{ letter-spacing:.6px; }
+    .brand small{ display:block; color:var(--muted); margin-top:2px; font-size:12px; }
+
+    .navlinks{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .navlinks a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:12px;
+      border:1px solid rgba(0,229,255,.08);
+      background: rgba(11,13,34,.35);
+      transition: .2s ease;
+      white-space:nowrap;
+    }
+    .navlinks a:hover{
+      color:var(--txt);
+      border-color: rgba(0,229,255,.35);
+      box-shadow: 0 0 0 3px rgba(0,229,255,.08);
+    }
+
+    /* 按钮 */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius: 14px;
+      border:1px solid rgba(0,229,255,.35);
+      background: linear-gradient(135deg, rgba(0,229,255,.16), rgba(255,43,214,.10));
+      color:var(--txt);
+      text-decoration:none;
+      font-weight:600;
+      box-shadow: var(--shadow);
+      transition: .18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,43,214,.45); }
+    .btn.secondary{
+      border-color: rgba(155,255,90,.35);
+      background: linear-gradient(135deg, rgba(155,255,90,.12), rgba(0,229,255,.10));
+      box-shadow: 0 0 18px rgba(155,255,90,.12), 0 0 26px rgba(0,229,255,.10);
+    }
+    .btn.ghost{
+      background: rgba(11,13,34,.35);
+      border-color: rgba(0,229,255,.18);
+      box-shadow:none;
+      color:var(--muted);
+    }
+    .btn.small{ padding:10px 12px; border-radius: 12px; font-size: 13px; }
+
+    /* Hero */
+    header.hero{
+      padding: 46px 0 26px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns:1fr; }
+      .brand{ min-width:auto; }
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(11,13,34,.80), rgba(11,13,34,.45));
+      border: 1px solid rgba(0,229,255,.18);
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 1px rgba(255,43,214,.06), var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(90deg, rgba(0,229,255,.20), transparent 35%),
+        linear-gradient(270deg, rgba(255,43,214,.14), transparent 40%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .card-inner{ position:relative; padding:22px; }
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(155,255,90,.35);
+      background: rgba(155,255,90,.08);
+      color: #dfffca;
+      font-size: 13px;
+    }
+    .kicker i{
+      display:inline-block;
+      width:10px; height:10px; border-radius:50%;
+      background: var(--neon3);
+      box-shadow: 0 0 10px rgba(155,255,90,.8);
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size: 38px;
+      line-height:1.1;
+      letter-spacing:.2px;
+    }
+    .sub{
+      color: var(--muted);
+      margin: 0 0 18px;
+      line-height:1.6;
+      font-size: 15px;
+    }
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 12px;
+    }
+    .badges{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      padding:8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(0,229,255,.12);
+      background: rgba(11,13,34,.35);
+    }
+
+    /* 右侧产品视觉 */
+    .product-visual{
+      min-height: 260px;
+      position:relative;
+    }
+    .visual{
+      height:100%;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(220px 160px at 25% 30%, rgba(0,229,255,.45), transparent 65%),
+        radial-gradient(220px 180px at 70% 35%, rgba(255,43,214,.35), transparent 70%),
+        radial-gradient(260px 200px at 55% 78%, rgba(155,255,90,.20), transparent 70%),
+        linear-gradient(135deg, rgba(11,13,34,.85), rgba(11,13,34,.35));
+      border: 1px solid rgba(0,229,255,.18);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .scanlines{
+      position:absolute; inset:0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(233,236,255,.06) 0px,
+        rgba(233,236,255,.06) 1px,
+        transparent 3px,
+        transparent 7px
+      );
+      opacity:.18;
+      pointer-events:none;
+      mix-blend-mode: overlay;
+    }
+    .wire{
+      position:absolute; inset:-20%;
+      background:
+        conic-gradient(from 210deg, transparent, rgba(0,229,255,.16), transparent 60%),
+        conic-gradient(from 30deg, transparent, rgba(255,43,214,.14), transparent 55%);
+      filter: blur(12px);
+      opacity:.65;
+      animation: spin 10s linear infinite;
+    }
+    @keyframes spin{ to { transform: rotate(360deg); } }
+    .mock-sink{
+      position:absolute; left:50%; top:52%;
+      transform: translate(-50%,-50%);
+      width:min(340px, 76%);
+      aspect-ratio: 16/10;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(233,236,255,.14), rgba(233,236,255,.05));
+      border: 1px solid rgba(233,236,255,.18);
+      box-shadow: 0 0 34px rgba(0,229,255,.12), inset 0 0 0 2px rgba(0,229,255,.10);
+    }
+    .mock-sink:before{
+      content:"";
+      position:absolute; inset:16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(0,229,255,.08), rgba(255,43,214,.06));
+      border: 1px solid rgba(0,229,255,.18);
+    }
+    .mock-sink:after{
+      content:"";
+      position:absolute; right:18px; top:50%;
+      transform: translateY(-50%);
+      width:34px; height:34px; border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, rgba(0,229,255,.6), rgba(11,13,34,.2) 60%);
+      border: 1px solid rgba(0,229,255,.25);
+      box-shadow: 0 0 18px rgba(0,229,255,.35);
+    }
+    .visual-label{
+      position:absolute; left:16px; top:16px;
+      display:flex; flex-direction:column; gap:6px;
+      font-size:12px; color:var(--muted);
+    }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,43,214,.22);
+      background: rgba(255,43,214,.08);
+      width:max-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:50%;
+      background: var(--neon2);
+      box-shadow: 0 0 10px rgba(255,43,214,.9);
+    }
+
+    /* 区块 */
+    section{ padding: 18px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px;
+      margin: 20px 0 12px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:.4px;
+    }
+    .section-title p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hr{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(0,229,255,.35), rgba(255,43,214,.25), transparent);
+      margin: 12px 0 0;
+      opacity:.8;
+    }
+
+    /* 三件事（定位主次） */
+    .tri{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .tri{ grid-template-columns:1fr; } }
+    .tri .item{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(0,229,255,.14);
+      background: rgba(11,13,34,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .tri .item:before{
+      content:"";
+      position:absolute; inset:-30%;
+      background: radial-gradient(circle at 30% 30%, rgba(0,229,255,.22), transparent 55%);
+      opacity:.65;
+      pointer-events:none;
+    }
+    .tri .item strong{ display:block; margin-bottom:6px; }
+    .tri .item ul{
+      margin:10px 0 0; padding-left: 16px;
+      color: var(--muted);
+      line-height:1.7;
+      font-size: 13px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius: 999px;
+      font-size:12px;
+      border:1px solid rgba(0,229,255,.18);
+      background: rgba(0,229,255,.06);
+      color: var(--txt);
+    }
+
+    /* 产品 */
+    .products{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .products{ grid-template-columns:1fr; } }
+    .p-card{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(0,229,255,.16);
+      background: linear-gradient(180deg, rgba(11,13,34,.55), rgba(11,13,34,.30));
+      position:relative;
+      overflow:hidden;
+    }
+    .p-card:before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        linear-gradient(120deg, rgba(0,229,255,.10), transparent 40%),
+        linear-gradient(300deg, rgba(255,43,214,.09), transparent 45%);
+      opacity:.75;
+      pointer-events:none;
+    }
+    .p-top{ position:relative; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+    .p-name{ margin:0; font-size:15px; }
+    .p-tag{ color:#e7d6ff; background: rgba(255,43,214,.10); border-color: rgba(255,43,214,.25); }
+    .p-img{
+      position:relative;
+      margin-top:12px;
+      height:120px;
+      border-radius: 14px;
+      border: 1px solid rgba(233,236,255,.12);
+      background:
+        radial-gradient(120px 80px at 25% 30%, rgba(0,229,255,.25), transparent 70%),
+        radial-gradient(120px 90px at 70% 60%, rgba(255,43,214,.20), transparent 70%),
+        linear-gradient(135deg, rgba(233,236,255,.10), rgba(233,236,255,.03));
+      overflow:hidden;
+    }
+    .p-img:after{
+      content:"产品图占位（替换为白底/场景实拍）";
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(233,236,255,.55);
+      font-size:12px;
+      letter-spacing:.2px;
+    }
+    .p-list{
+      margin:12px 0 0;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.7;
+      position:relative;
+    }
+    .p-actions{
+      margin-top:12px;
+      display:flex; flex-wrap:wrap; gap:10px;
+      position:relative;
+    }
+    .p-actions a{ flex:1; min-width: 120px; }
+
+    /* 优势 */
+    .features{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 980px){ .features{ grid-template-columns:1fr 1fr; } }
+    .f{
+      padding:12px;
+      border-radius: 16px;
+      border:1px solid rgba(155,255,90,.18);
+      background: rgba(155,255,90,.06);
+      color: #eaffdf;
+    }
+    .f b{ display:block; margin-bottom:4px; }
+    .f span{ color: rgba(233,236,255,.70); font-size: 12px; line-height:1.4; display:block; }
+
+    /* 关于/案例/证书/联系 */
+    .two{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 980px){ .two{ grid-template-columns:1fr; } }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 16px;
+      color: var(--muted);
+      line-height:1.7;
+      font-size: 13px;
+    }
+
+    .cases{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 980px){ .cases{ grid-template-columns:1fr; } }
+    .case{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(0,229,255,.14);
+      background: rgba(11,13,34,.35);
+      position:relative;
+      overflow:hidden;
+    }
+    .case .thumb{
+      height:110px;
+      border-radius: 14px;
+      border: 1px solid rgba(233,236,255,.12);
+      background:
+        radial-gradient(100px 70px at 30% 30%, rgba(0,229,255,.22), transparent 70%),
+        radial-gradient(110px 80px at 65% 65%, rgba(155,255,90,.14), transparent 70%),
+        linear-gradient(135deg, rgba(233,236,255,.10), rgba(233,236,255,.03));
+      margin-top:10px;
+      position:relative;
+      overflow:hidden;
+    }
+    .case .thumb:after{
+      content:"场景图占位（替换为真实项目照片）";
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(233,236,255,.55);
+      font-size:12px;
+    }
+
+    .certs{
+      display:grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap:10px;
+    }
+    @media (max-width: 980px){ .certs{ grid-template-columns: 1fr 1fr; } }
+    .cert{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,204,0,.20);
+      background: rgba(255,204,0,.06);
+      color:#fff2b6;
+      text-align:center;
+      font-weight:700;
+      letter-spacing:.4px;
+    }
+    .cert small{
+      display:block;
+      font-weight:500;
+      margin-top:4px;
+      color: rgba(233,236,255,.70);
+      letter-spacing:0;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
+    .kv{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.7;
+    }
+    .kv b{ color: var(--txt); font-weight:700; }
+    form{
+      display:grid;
+      gap:10px;
+      margin-top: 8px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,229,255,.16);
+      background: rgba(7,8,22,.55);
+      color: var(--txt);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(255,43,214,.35);
+      box-shadow: 0 0 0 3px rgba(255,43,214,.10);
+    }
+    textarea{ min-height: 100px; resize: vertical; }
+
+    /* 悬浮联系 */
+    .floatbar{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .floatbar a{
+      border-radius: 999px;
+      padding: 12px 14px;
+      text-decoration:none;
+      color: var(--txt);
+      border: 1px solid rgba(0,229,255,.35);
+      background: rgba(11,13,34,.75);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      font-weight:700;
+      font-size: 13px;
+      text-align:center;
+      min-width: 128px;
+    }
+    .floatbar a:nth-child(2){
+      border-color: rgba(155,255,90,.35);
+      box-shadow: 0 0 20px rgba(155,255,90,.14), 0 0 28px rgba(0,229,255,.08);
+    }
+    .floatbar a:nth-child(3){
+      border-color: rgba(255,43,214,.35);
+      box-shadow: 0 0 20px rgba(255,43,214,.14), 0 0 28px rgba(0,229,255,.08);
+    }
+
+    footer{
+      padding: 26px 0 40px;
+      color: rgba(233,236,255,.60);
+      font-size: 12px;
+    }
+
+    /* 小动画：光标闪烁 */
+    .cursor{
+      display:inline-block;
+      width:8px; height:16px;
+      background: rgba(0,229,255,.85);
+      margin-left:6px;
+      box-shadow: 0 0 12px rgba(0,229,255,.7);
+      animation: blink 1s steps(2) infinite;
+      vertical-align: -2px;
+    }
+    @keyframes blink{ 50%{ opacity:0; } }
+  </style>
+</head>
+
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- 悬浮快速联系（跑广告必备） -->
+  <div class="floatbar" aria-label="快速联系">
+    <a href="#contact">获取报价</a>
+    <a href="#contact">联系客服</a>
+    <a href="#products">查看产品</a>
+  </div>
+
+  <!-- 顶部导航 -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top">
+          <span class="logo" aria-hidden="true"></span>
+          <span>
+            <strong>你的品牌名 · 厨房水槽</strong>
+            <small>展示 + 询盘 + 广告承接（非纯电商）</small>
+          </span>
+        </a>
+        <div class="navlinks">
+          <a href="#position">网站定位</a>
+          <a href="#products">产品</a>
+          <a href="#about">关于我们</a>
+          <a href="#cases">工程案例</a>
+          <a href="#certs">证书资质</a>
+          <a href="#contact">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero：3秒核心卖点 + 主打产品视觉 + CTA -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="card-inner">
+            <span class="kicker"><i></i> 一句话核心卖点（3秒让客户懂你卖什么）</span>
+            <h1>
+              304/316 不锈钢厨房水槽 · 防刮耐用 · 10 年质保
+              <span class="cursor" aria-hidden="true"></span>
+            </h1>
+            <p class="sub">
+              适合家庭装修、工程项目、经销批发。主打：材质可靠、工艺扎实、排水不返味、易清洁、售后本地响应。
+              <br/>（把这段替换成你的真实定位/强项）
+            </p>
+
+            <div class="features" aria-label="核心优势">
+              <div class="f"><b>材质</b><span>304 / 316 / 石英复合</span></div>
+              <div class="f"><b>工艺</b><span>一体拉伸 / 手工焊接</span></div>
+              <div class="f"><b>功能</b><span>防溢水 / 消音垫</span></div>
+              <div class="f"><b>排水</b><span>快排不返味系统</span></div>
+              <div class="f"><b>售后</b><span>质保 + 本地服务</span></div>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn" href="#contact">获取报价（批发/工程）</a>
+              <a class="btn secondary" href="#products">查看主打产品</a>
+              <a class="btn ghost" href="#about">为什么选我们</a>
+            </div>
+
+            <div class="badges">
+              <span class="badge">支持：台上 / 台下 / 平嵌</span>
+              <span class="badge">交期：现货/定制（按需写）</span>
+              <span class="badge">覆盖：本地/全国/出口（按需写）</span>
+              <span class="badge">咨询：Zalo / WhatsApp / 表单</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-visual">
+          <div class="visual">
+            <div class="wire" aria-hidden="true"></div>
+            <div class="scanlines" aria-hidden="true"></div>
+            <div class="visual-label">
+              <div class="chip"><span class="dot"></span>主打产品视觉区（替换成真实场景图）</div>
+              <div class="chip" style="border-color:rgba(0,229,255,.22);background:rgba(0,229,255,.07)"><span class="dot" style="background:var(--neon1)"></span>1–3款爆款型号</div>
+            </div>
+            <div class="mock-sink" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ① 网站定位：主次分明 -->
+  <section id="position">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>① 网站定位（先想清楚，不然后面全废）</h2>
+        <p>确认：核心目的 / 目标客户 / 主打档位</p>
+      </div>
+      <div class="hr"></div>
+
+      <div class="tri" style="margin-top:12px;">
+        <div class="item">
+          <span class="pill">主目标（建议）</span>
+          <strong style="margin-top:10px;">获取询盘（B2B / 批发 / 工程）</strong>
+          <ul>
+            <li>所有页面都要有“获取报价/联系客服”入口</li>
+            <li>产品页重点放：参数表 + 配件清单 + 价格区间（起）</li>
+            <li>表单字段：姓名/电话/城市/需求（工程/批发/家装）</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <span class="pill">次目标</span>
+          <strong style="margin-top:10px;">展示品牌形象（可信度）</strong>
+          <ul>
+            <li>关于我们：不是历史，而是“为什么选你”</li>
+            <li>工程案例 + 证书资质：解决信任与背书</li>
+            <li>售后与服务范围：降低下单顾虑</li>
+          </ul>
+        </div>
+
+        <div class="item">
+          <span class="pill">流量承接（跑广告必备）</span>
+          <strong style="margin-top:10px;">承接广告流量（FB/Google/TikTok）</strong>
+          <ul>
+            <li>落地页=本页结构：3秒卖点 + 爆款 + 优势 + 询盘</li>
+            <li>悬浮联系按钮：随时可点（右下角已放）</li>
+            <li>价格区间：至少“从……起”，别让客户猜</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ② 产品：转化核心 -->
+  <section id="products">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>② 主打产品（转化核心）</h2>
+        <p>每个产品：基础信息 + 图片 + 卖点 + 参数表 + 转化入口</p>
+      </div>
+      <div class="hr"></div>
+
+      <div class="products" style="margin-top:12px;">
+        <!-- 产品 1 -->
+        <div class="p-card">
+          <div class="p-top">
+            <div>
+              <h3 class="p-name">型号：KX-7845（示例）</h3>
+              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="pill p-tag">304 不锈钢</span>
+                <span class="pill">台下/平嵌</span>
+                <span class="pill">780×450 mm</span>
+              </div>
+            </div>
+            <span class="pill" style="border-color:rgba(0,229,255,.22);">爆款</span>
+          </div>
+
+          <div class="p-img" aria-hidden="true"></div>
+
+          <ul class="p-list">
+            <li>防刮耐磨：表面工艺（拉丝/蜂窝）</li>
+            <li>快排不返味：下水系统升级</li>
+            <li>消音防结露：消音垫 + 防冷凝涂层</li>
+            <li><b>价格区间：</b>从 ¥XXX 起（请替换）</li>
+          </ul>
+
+          <div class="p-actions">
+            <a class="btn small" href="#contact">获取批发/工程价</a>
+            <a class="btn small ghost" href="#contact">索要参数表</a>
+          </div>
+        </div>
+
+        <!-- 产品 2 -->
+        <div class="p-card">
+          <div class="p-top">
+            <div>
+              <h3 class="p-name">型号：KX-6842（示例）</h3>
+              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
+                <span class="pill p-tag">316 不锈钢</span>
+                <span class="pill">台上/台下</span>
+                <span class="pill">680×420 mm</span>
+              </div>
+            </div>
+            <span class="pill" style="border-color:rgba(155,255,90,.25); background:rgba(155,255,90,.06);">耐腐蚀</span>
+          </div>
+
+          <div class="p-img" aria-hidden="true"></div>
+
+          <ul class="p-list">
+            <li>适合沿海/高湿环境：耐腐蚀更强</li>
+            <li>圆角易清洁：油污不易残留</li>
+            <li>配件齐全：沥水篮/砧板（按实际写）</li>
+            <li>
