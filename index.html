@@ -1,794 +1,446 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>水槽品牌官网｜一页式落地页（赛博朋克风）</title>
-  <style>
-    :root{
-      --bg:#070816;
-      --panel:#0b0d22cc;
-      --panel2:#0b0d22aa;
-      --grid:#1a1d44;
-      --txt:#e9ecff;
-      --muted:#a7b0ff;
-      --neon1:#00e5ff;
-      --neon2:#ff2bd6;
-      --neon3:#9bff5a;
-      --warn:#ffcc00;
-      --shadow: 0 0 22px rgba(0,229,255,.25), 0 0 34px rgba(255,43,214,.12);
-      --radius: 18px;
-    }
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>三轮车表单广告脚本（果农版）- 3套</title>
+    <style>
+      :root {
+        --bg: #0b0f14;
+        --card: #121824;
+        --text: #e9eef6;
+        --muted: #a9b4c3;
+        --line: rgba(255, 255, 255, 0.08);
+        --accent: #7dd3fc;
+        --accent2: #a7f3d0;
+        --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+        --radius: 16px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Microsoft YaHei",
+          Arial, sans-serif;
+        background: radial-gradient(1200px 600px at 20% -10%, rgba(125, 211, 252, 0.15), transparent),
+          radial-gradient(900px 500px at 100% 10%, rgba(167, 243, 208, 0.12), transparent),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      .wrap {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 28px 16px 60px;
+      }
+      header {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 0;
+        letter-spacing: 0.2px;
+      }
+      .sub {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .btn {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 13px;
+        transition: transform .06s ease, background .2s ease, border-color .2s ease;
+        user-select: none;
+      }
+      .btn:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(255,255,255,.14); }
+      .btn:active { transform: translateY(1px); }
+      .btn.primary { border-color: rgba(125, 211, 252, 0.35); }
+      .btn.ok { border-color: rgba(167, 243, 208, 0.35); }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .chip {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+      }
+      .grid {
+        display: grid;
+        gap: 14px;
+        margin-top: 18px;
+      }
+      .card {
+        background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow);
+      }
+      .card h2 {
+        margin: 0 0 8px;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin: 6px 0 14px;
+      }
+      .tag {
+        font-size: 12px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.03);
+        color: var(--muted);
+      }
+      .tag.accent { border-color: rgba(125, 211, 252, .28); color: #cdefff; }
+      .tag.accent2 { border-color: rgba(167, 243, 208, .28); color: #d6fff0; }
+      .sectionTitle {
+        margin: 14px 0 8px;
+        font-size: 12px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: .12em;
+      }
+      .lines {
+        display: grid;
+        gap: 10px;
+        margin-top: 6px;
+      }
+      .pair {
+        border: 1px solid rgba(255,255,255,.08);
+        background: rgba(0,0,0,.15);
+        border-radius: 14px;
+        padding: 10px 12px;
+      }
+      .zh {
+        font-size: 14px;
+        color: var(--text);
+      }
+      .vi {
+        font-size: 14px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+      .pair.hook {
+        border-color: rgba(125, 211, 252, .28);
+        background: rgba(125, 211, 252, 0.06);
+      }
+      .pair.cta {
+        border-color: rgba(167, 243, 208, .28);
+        background: rgba(167, 243, 208, 0.06);
+      }
+      .hint {
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 12px;
+        border-top: 1px dashed rgba(255,255,255,.12);
+        padding-top: 12px;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      }
+      .hide-vi .vi { display: none; }
+      .hide-zh .zh { display: none; }
+      footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 12px;
+        opacity: .95;
+      }
+    </style>
+  </head>
 
-    *{ box-sizing:border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC","Microsoft YaHei", Arial, sans-serif;
-      color:var(--txt);
-      background:
-        radial-gradient(1200px 600px at 18% 10%, rgba(255,43,214,.18), transparent 60%),
-        radial-gradient(900px 520px at 85% 18%, rgba(0,229,255,.18), transparent 60%),
-        radial-gradient(900px 600px at 50% 90%, rgba(155,255,90,.10), transparent 60%),
-        linear-gradient(180deg, #040513 0%, #070816 30%, #040513 100%);
-      overflow-x:hidden;
-    }
-
-    /* 赛博网格 */
-    .grid-bg{
-      position:fixed; inset:-2px;
-      background:
-        linear-gradient(to right, rgba(26,29,68,.55) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(26,29,68,.55) 1px, transparent 1px);
-      background-size: 56px 56px;
-      opacity:.25;
-      pointer-events:none;
-      transform: perspective(900px) rotateX(58deg) translateY(-140px);
-      filter: blur(.2px);
-    }
-
-    /* 顶部导航 */
-    .topbar{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(180deg, rgba(7,8,22,.88), rgba(7,8,22,.55));
-      border-bottom: 1px solid rgba(0,229,255,.18);
-    }
-    .wrap{ max-width:1120px; margin:0 auto; padding:0 18px; }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-      gap:14px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      text-decoration:none; color:var(--txt);
-      min-width:220px;
-    }
-    .logo{
-      width:38px; height:38px; border-radius:12px;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(0,229,255,.9), transparent 50%),
-        radial-gradient(circle at 70% 70%, rgba(255,43,214,.9), transparent 55%),
-        linear-gradient(135deg, rgba(11,13,34,1), rgba(11,13,34,.6));
-      border: 1px solid rgba(0,229,255,.35);
-      box-shadow: var(--shadow);
-      position:relative;
-    }
-    .logo:after{
-      content:"";
-      position:absolute; inset:7px;
-      border-radius:10px;
-      border: 1px dashed rgba(155,255,90,.55);
-      opacity:.7;
-    }
-    .brand strong{ letter-spacing:.6px; }
-    .brand small{ display:block; color:var(--muted); margin-top:2px; font-size:12px; }
-
-    .navlinks{
-      display:flex; flex-wrap:wrap; gap:10px;
-      align-items:center;
-      justify-content:flex-end;
-    }
-    .navlinks a{
-      color:var(--muted);
-      text-decoration:none;
-      font-size:13px;
-      padding:8px 10px;
-      border-radius:12px;
-      border:1px solid rgba(0,229,255,.08);
-      background: rgba(11,13,34,.35);
-      transition: .2s ease;
-      white-space:nowrap;
-    }
-    .navlinks a:hover{
-      color:var(--txt);
-      border-color: rgba(0,229,255,.35);
-      box-shadow: 0 0 0 3px rgba(0,229,255,.08);
-    }
-
-    /* 按钮 */
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding:12px 14px;
-      border-radius: 14px;
-      border:1px solid rgba(0,229,255,.35);
-      background: linear-gradient(135deg, rgba(0,229,255,.16), rgba(255,43,214,.10));
-      color:var(--txt);
-      text-decoration:none;
-      font-weight:600;
-      box-shadow: var(--shadow);
-      transition: .18s ease;
-    }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,43,214,.45); }
-    .btn.secondary{
-      border-color: rgba(155,255,90,.35);
-      background: linear-gradient(135deg, rgba(155,255,90,.12), rgba(0,229,255,.10));
-      box-shadow: 0 0 18px rgba(155,255,90,.12), 0 0 26px rgba(0,229,255,.10);
-    }
-    .btn.ghost{
-      background: rgba(11,13,34,.35);
-      border-color: rgba(0,229,255,.18);
-      box-shadow:none;
-      color:var(--muted);
-    }
-    .btn.small{ padding:10px 12px; border-radius: 12px; font-size: 13px; }
-
-    /* Hero */
-    header.hero{
-      padding: 46px 0 26px;
-      position:relative;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .85fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    @media (max-width: 980px){
-      .hero-grid{ grid-template-columns:1fr; }
-      .brand{ min-width:auto; }
-    }
-    .card{
-      background: linear-gradient(180deg, rgba(11,13,34,.80), rgba(11,13,34,.45));
-      border: 1px solid rgba(0,229,255,.18);
-      border-radius: var(--radius);
-      box-shadow: 0 0 0 1px rgba(255,43,214,.06), var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .card:before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(90deg, rgba(0,229,255,.20), transparent 35%),
-        linear-gradient(270deg, rgba(255,43,214,.14), transparent 40%);
-      opacity:.55;
-      pointer-events:none;
-    }
-    .card-inner{ position:relative; padding:22px; }
-    .kicker{
-      display:inline-flex; gap:10px; align-items:center;
-      padding:8px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(155,255,90,.35);
-      background: rgba(155,255,90,.08);
-      color: #dfffca;
-      font-size: 13px;
-    }
-    .kicker i{
-      display:inline-block;
-      width:10px; height:10px; border-radius:50%;
-      background: var(--neon3);
-      box-shadow: 0 0 10px rgba(155,255,90,.8);
-    }
-    h1{
-      margin:14px 0 8px;
-      font-size: 38px;
-      line-height:1.1;
-      letter-spacing:.2px;
-    }
-    .sub{
-      color: var(--muted);
-      margin: 0 0 18px;
-      line-height:1.6;
-      font-size: 15px;
-    }
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 12px;
-    }
-    .badges{
-      margin-top:14px;
-      display:flex; flex-wrap:wrap; gap:8px;
-    }
-    .badge{
-      font-size:12px;
-      color: var(--muted);
-      padding:8px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(0,229,255,.12);
-      background: rgba(11,13,34,.35);
-    }
-
-    /* 右侧产品视觉 */
-    .product-visual{
-      min-height: 260px;
-      position:relative;
-    }
-    .visual{
-      height:100%;
-      border-radius: var(--radius);
-      background:
-        radial-gradient(220px 160px at 25% 30%, rgba(0,229,255,.45), transparent 65%),
-        radial-gradient(220px 180px at 70% 35%, rgba(255,43,214,.35), transparent 70%),
-        radial-gradient(260px 200px at 55% 78%, rgba(155,255,90,.20), transparent 70%),
-        linear-gradient(135deg, rgba(11,13,34,.85), rgba(11,13,34,.35));
-      border: 1px solid rgba(0,229,255,.18);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position:relative;
-    }
-    .scanlines{
-      position:absolute; inset:0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(233,236,255,.06) 0px,
-        rgba(233,236,255,.06) 1px,
-        transparent 3px,
-        transparent 7px
-      );
-      opacity:.18;
-      pointer-events:none;
-      mix-blend-mode: overlay;
-    }
-    .wire{
-      position:absolute; inset:-20%;
-      background:
-        conic-gradient(from 210deg, transparent, rgba(0,229,255,.16), transparent 60%),
-        conic-gradient(from 30deg, transparent, rgba(255,43,214,.14), transparent 55%);
-      filter: blur(12px);
-      opacity:.65;
-      animation: spin 10s linear infinite;
-    }
-    @keyframes spin{ to { transform: rotate(360deg); } }
-    .mock-sink{
-      position:absolute; left:50%; top:52%;
-      transform: translate(-50%,-50%);
-      width:min(340px, 76%);
-      aspect-ratio: 16/10;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(233,236,255,.14), rgba(233,236,255,.05));
-      border: 1px solid rgba(233,236,255,.18);
-      box-shadow: 0 0 34px rgba(0,229,255,.12), inset 0 0 0 2px rgba(0,229,255,.10);
-    }
-    .mock-sink:before{
-      content:"";
-      position:absolute; inset:16px;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(0,229,255,.08), rgba(255,43,214,.06));
-      border: 1px solid rgba(0,229,255,.18);
-    }
-    .mock-sink:after{
-      content:"";
-      position:absolute; right:18px; top:50%;
-      transform: translateY(-50%);
-      width:34px; height:34px; border-radius: 50%;
-      background: radial-gradient(circle at 35% 30%, rgba(0,229,255,.6), rgba(11,13,34,.2) 60%);
-      border: 1px solid rgba(0,229,255,.25);
-      box-shadow: 0 0 18px rgba(0,229,255,.35);
-    }
-    .visual-label{
-      position:absolute; left:16px; top:16px;
-      display:flex; flex-direction:column; gap:6px;
-      font-size:12px; color:var(--muted);
-    }
-    .chip{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px;
-      border-radius: 999px;
-      border:1px solid rgba(255,43,214,.22);
-      background: rgba(255,43,214,.08);
-      width:max-content;
-    }
-    .dot{
-      width:8px; height:8px; border-radius:50%;
-      background: var(--neon2);
-      box-shadow: 0 0 10px rgba(255,43,214,.9);
-    }
-
-    /* 区块 */
-    section{ padding: 18px 0; }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap:12px;
-      margin: 20px 0 12px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing:.4px;
-    }
-    .section-title p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .hr{
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(0,229,255,.35), rgba(255,43,214,.25), transparent);
-      margin: 12px 0 0;
-      opacity:.8;
-    }
-
-    /* 三件事（定位主次） */
-    .tri{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){ .tri{ grid-template-columns:1fr; } }
-    .tri .item{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid rgba(0,229,255,.14);
-      background: rgba(11,13,34,.35);
-      position:relative;
-      overflow:hidden;
-    }
-    .tri .item:before{
-      content:"";
-      position:absolute; inset:-30%;
-      background: radial-gradient(circle at 30% 30%, rgba(0,229,255,.22), transparent 55%);
-      opacity:.65;
-      pointer-events:none;
-    }
-    .tri .item strong{ display:block; margin-bottom:6px; }
-    .tri .item ul{
-      margin:10px 0 0; padding-left: 16px;
-      color: var(--muted);
-      line-height:1.7;
-      font-size: 13px;
-    }
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:6px 10px;
-      border-radius: 999px;
-      font-size:12px;
-      border:1px solid rgba(0,229,255,.18);
-      background: rgba(0,229,255,.06);
-      color: var(--txt);
-    }
-
-    /* 产品 */
-    .products{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){ .products{ grid-template-columns:1fr; } }
-    .p-card{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid rgba(0,229,255,.16);
-      background: linear-gradient(180deg, rgba(11,13,34,.55), rgba(11,13,34,.30));
-      position:relative;
-      overflow:hidden;
-    }
-    .p-card:before{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(120deg, rgba(0,229,255,.10), transparent 40%),
-        linear-gradient(300deg, rgba(255,43,214,.09), transparent 45%);
-      opacity:.75;
-      pointer-events:none;
-    }
-    .p-top{ position:relative; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
-    .p-name{ margin:0; font-size:15px; }
-    .p-tag{ color:#e7d6ff; background: rgba(255,43,214,.10); border-color: rgba(255,43,214,.25); }
-    .p-img{
-      position:relative;
-      margin-top:12px;
-      height:120px;
-      border-radius: 14px;
-      border: 1px solid rgba(233,236,255,.12);
-      background:
-        radial-gradient(120px 80px at 25% 30%, rgba(0,229,255,.25), transparent 70%),
-        radial-gradient(120px 90px at 70% 60%, rgba(255,43,214,.20), transparent 70%),
-        linear-gradient(135deg, rgba(233,236,255,.10), rgba(233,236,255,.03));
-      overflow:hidden;
-    }
-    .p-img:after{
-      content:"产品图占位（替换为白底/场景实拍）";
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(233,236,255,.55);
-      font-size:12px;
-      letter-spacing:.2px;
-    }
-    .p-list{
-      margin:12px 0 0;
-      padding-left: 16px;
-      color: var(--muted);
-      font-size:13px;
-      line-height:1.7;
-      position:relative;
-    }
-    .p-actions{
-      margin-top:12px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      position:relative;
-    }
-    .p-actions a{ flex:1; min-width: 120px; }
-
-    /* 优势 */
-    .features{
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap:10px;
-    }
-    @media (max-width: 980px){ .features{ grid-template-columns:1fr 1fr; } }
-    .f{
-      padding:12px;
-      border-radius: 16px;
-      border:1px solid rgba(155,255,90,.18);
-      background: rgba(155,255,90,.06);
-      color: #eaffdf;
-    }
-    .f b{ display:block; margin-bottom:4px; }
-    .f span{ color: rgba(233,236,255,.70); font-size: 12px; line-height:1.4; display:block; }
-
-    /* 关于/案例/证书/联系 */
-    .two{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 980px){ .two{ grid-template-columns:1fr; } }
-    .list{
-      margin: 10px 0 0;
-      padding-left: 16px;
-      color: var(--muted);
-      line-height:1.7;
-      font-size: 13px;
-    }
-
-    .cases{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-    }
-    @media (max-width: 980px){ .cases{ grid-template-columns:1fr; } }
-    .case{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid rgba(0,229,255,.14);
-      background: rgba(11,13,34,.35);
-      position:relative;
-      overflow:hidden;
-    }
-    .case .thumb{
-      height:110px;
-      border-radius: 14px;
-      border: 1px solid rgba(233,236,255,.12);
-      background:
-        radial-gradient(100px 70px at 30% 30%, rgba(0,229,255,.22), transparent 70%),
-        radial-gradient(110px 80px at 65% 65%, rgba(155,255,90,.14), transparent 70%),
-        linear-gradient(135deg, rgba(233,236,255,.10), rgba(233,236,255,.03));
-      margin-top:10px;
-      position:relative;
-      overflow:hidden;
-    }
-    .case .thumb:after{
-      content:"场景图占位（替换为真实项目照片）";
-      position:absolute; inset:0;
-      display:flex; align-items:center; justify-content:center;
-      color: rgba(233,236,255,.55);
-      font-size:12px;
-    }
-
-    .certs{
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap:10px;
-    }
-    @media (max-width: 980px){ .certs{ grid-template-columns: 1fr 1fr; } }
-    .cert{
-      padding:12px;
-      border-radius:16px;
-      border:1px solid rgba(255,204,0,.20);
-      background: rgba(255,204,0,.06);
-      color:#fff2b6;
-      text-align:center;
-      font-weight:700;
-      letter-spacing:.4px;
-    }
-    .cert small{
-      display:block;
-      font-weight:500;
-      margin-top:4px;
-      color: rgba(233,236,255,.70);
-      letter-spacing:0;
-    }
-
-    .contact-grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
-    .kv{
-      display:grid;
-      grid-template-columns: 110px 1fr;
-      gap:8px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.7;
-    }
-    .kv b{ color: var(--txt); font-weight:700; }
-    form{
-      display:grid;
-      gap:10px;
-      margin-top: 8px;
-    }
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,229,255,.16);
-      background: rgba(7,8,22,.55);
-      color: var(--txt);
-      outline:none;
-    }
-    input:focus, textarea:focus{
-      border-color: rgba(255,43,214,.35);
-      box-shadow: 0 0 0 3px rgba(255,43,214,.10);
-    }
-    textarea{ min-height: 100px; resize: vertical; }
-
-    /* 悬浮联系 */
-    .floatbar{
-      position:fixed;
-      right: 16px;
-      bottom: 16px;
-      z-index: 60;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .floatbar a{
-      border-radius: 999px;
-      padding: 12px 14px;
-      text-decoration:none;
-      color: var(--txt);
-      border: 1px solid rgba(0,229,255,.35);
-      background: rgba(11,13,34,.75);
-      backdrop-filter: blur(10px);
-      box-shadow: var(--shadow);
-      font-weight:700;
-      font-size: 13px;
-      text-align:center;
-      min-width: 128px;
-    }
-    .floatbar a:nth-child(2){
-      border-color: rgba(155,255,90,.35);
-      box-shadow: 0 0 20px rgba(155,255,90,.14), 0 0 28px rgba(0,229,255,.08);
-    }
-    .floatbar a:nth-child(3){
-      border-color: rgba(255,43,214,.35);
-      box-shadow: 0 0 20px rgba(255,43,214,.14), 0 0 28px rgba(0,229,255,.08);
-    }
-
-    footer{
-      padding: 26px 0 40px;
-      color: rgba(233,236,255,.60);
-      font-size: 12px;
-    }
-
-    /* 小动画：光标闪烁 */
-    .cursor{
-      display:inline-block;
-      width:8px; height:16px;
-      background: rgba(0,229,255,.85);
-      margin-left:6px;
-      box-shadow: 0 0 12px rgba(0,229,255,.7);
-      animation: blink 1s steps(2) infinite;
-      vertical-align: -2px;
-    }
-    @keyframes blink{ 50%{ opacity:0; } }
-  </style>
-</head>
-
-<body>
-  <div class="grid-bg" aria-hidden="true"></div>
-
-  <!-- 悬浮快速联系（跑广告必备） -->
-  <div class="floatbar" aria-label="快速联系">
-    <a href="#contact">获取报价</a>
-    <a href="#contact">联系客服</a>
-    <a href="#products">查看产品</a>
-  </div>
-
-  <!-- 顶部导航 -->
-  <div class="topbar">
+  <body>
     <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top">
-          <span class="logo" aria-hidden="true"></span>
-          <span>
-            <strong>你的品牌名 · 厨房水槽</strong>
-            <small>展示 + 询盘 + 广告承接（非纯电商）</small>
-          </span>
-        </a>
-        <div class="navlinks">
-          <a href="#position">网站定位</a>
-          <a href="#products">产品</a>
-          <a href="#about">关于我们</a>
-          <a href="#cases">工程案例</a>
-          <a href="#certs">证书资质</a>
-          <a href="#contact">联系我们</a>
+      <header>
+        <h1>电动三轮车｜果农表单广告脚本（可直接投）</h1>
+        <div class="sub">
+          每条 45–60 秒｜真人口播 + 混剪｜一行中文一行越南语｜适用 TikTok / Facebook Lead Form
         </div>
+
+        <div class="toolbar">
+          <button class="btn primary" id="copyAllBtn">复制全部脚本</button>
+          <button class="btn" id="copySelectedBtn">复制当前可见脚本</button>
+          <button class="btn ok" id="toggleViBtn">隐藏/显示 越南语</button>
+          <button class="btn ok" id="toggleZhBtn">隐藏/显示 中文</button>
+          <button class="btn" id="expandAllBtn">展开全部</button>
+          <button class="btn" id="collapseAllBtn">折叠全部</button>
+        </div>
+
+        <div class="chips">
+          <span class="chip">剪辑建议：前3秒正脸狠钩子</span>
+          <span class="chip">中段大量B-roll：果园/装货/烂路</span>
+          <span class="chip">不要价格/参数/品牌Logo</span>
+          <span class="chip">CTA：只填用途/地区/预算</span>
+        </div>
+      </header>
+
+      <div class="grid" id="cards">
+        <!-- Card 1 -->
+        <details class="card script" data-title="版本① 做果园的，一定听得懂" open>
+          <summary style="cursor:pointer; list-style:none;">
+            <h2>✅ 表单广告版本 ①｜《做果园的，一定听得懂》</h2>
+            <div class="meta">
+              <span class="tag accent">前3秒狠钩子</span>
+              <span class="tag">偏拉量</span>
+              <span class="tag">45–60秒</span>
+            </div>
+          </summary>
+
+          <div class="sectionTitle">脚本正文</div>
+          <div class="lines">
+            <div class="pair hook">
+              <div class="zh">做果园的，你买三轮车只看价格吗？</div>
+              <div class="vi">Làm vườn mà mua xe ba bánh, bạn chỉ nhìn giá thôi sao?</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">我一开始也觉得，三轮车差不多就行。</div>
+              <div class="vi">Lúc đầu tôi cũng nghĩ xe ba bánh cái nào cũng giống nhau.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">后来才发现，便宜的车，天天浪费时间。</div>
+              <div class="vi">Sau mới biết, xe rẻ là xe làm mất thời gian mỗi ngày.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">这辆车在果园地不平的地方跑，也很稳。</div>
+              <div class="vi">Chiếc này chạy trong vườn gồ ghề vẫn rất ổn.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">拉肥料、拉咖啡、拉水果，一趟搞定。</div>
+              <div class="vi">Chở phân, chở cà phê, chở trái cây, một chuyến là xong.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">不用自己扛，快很多，也轻松很多。</div>
+              <div class="vi">Không phải vác tay, nhanh hơn và khỏe hơn nhiều.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">对我们做果园的人来说，重要的不是便宜，是好不好用。</div>
+              <div class="vi">Với người làm vườn, quan trọng không phải rẻ, mà là dùng có tiện không.</div>
+            </div>
+
+            <div class="pair cta">
+              <div class="zh">你填一下你果园做什么、在什么地方，我告诉你这种车适不适合你。</div>
+              <div class="vi">Bạn điền loại vườn bạn làm và khu vực, tôi nói cho bạn biết xe này có hợp hay không.</div>
+            </div>
+          </div>
+
+          <div class="hint">
+            <span class="mono">镜头提示：</span>开头正脸（3秒）→ 旧车/手势对比（5秒）→ 果园烂路行驶（10秒）→ 装肥/咖啡/水果（20秒）→ 结尾正脸CTA（8秒）
+          </div>
+        </details>
+
+        <!-- Card 2 -->
+        <details class="card script" data-title="版本② 算账型果农">
+          <summary style="cursor:pointer; list-style:none;">
+            <h2>✅ 表单广告版本 ②｜《算账型果农》</h2>
+            <div class="meta">
+              <span class="tag accent">前3秒狠钩子</span>
+              <span class="tag">偏筛选理性果农</span>
+              <span class="tag">45–60秒</span>
+            </div>
+          </summary>
+
+          <div class="sectionTitle">脚本正文</div>
+          <div class="lines">
+            <div class="pair hook">
+              <div class="zh">一辆车如果每天帮你干活，你觉得它贵吗？</div>
+              <div class="vi">Một chiếc xe ngày nào cũng giúp bạn làm việc, bạn thấy nó đắt không?</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">我做果园，一天来回跑很多趟。</div>
+              <div class="vi">Tôi làm vườn, mỗi ngày đi tới đi lui rất nhiều.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">以前靠人搬，又慢又累。</div>
+              <div class="vi">Trước đây vác tay, vừa chậm vừa mệt.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">现在一趟就能拉好几包。</div>
+              <div class="vi">Giờ một chuyến là chở được mấy bao liền.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">省的是时间，省的也是力气。</div>
+              <div class="vi">Tiết kiệm thời gian, cũng tiết kiệm sức.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">所以我买这辆车，不是为了便宜，是为了每天干活顺一点。</div>
+              <div class="vi">Vì vậy tôi mua xe này không phải vì rẻ, mà vì làm việc mỗi ngày thuận hơn.</div>
+            </div>
+
+            <div class="pair cta">
+              <div class="zh">你填一下你的用途和预算，我帮你算清楚值不值得。</div>
+              <div class="vi">Bạn điền mục đích sử dụng và ngân sách, tôi giúp bạn tính có đáng hay không.</div>
+            </div>
+          </div>
+
+          <div class="hint">
+            <span class="mono">剪辑节奏：</span>快问快答 + 多用“对比画面”（人力搬运 vs 车一趟拉多包），适合筛出认真干活、会算账的人。
+          </div>
+        </details>
+
+        <!-- Card 3 -->
+        <details class="card script" data-title="版本③ 真实吐槽反转型">
+          <summary style="cursor:pointer; list-style:none;">
+            <h2>✅ 表单广告版本 ③｜《真实吐槽反转型》</h2>
+            <div class="meta">
+              <span class="tag accent">前3秒狠钩子</span>
+              <span class="tag">偏信任/口碑</span>
+              <span class="tag">45–60秒</span>
+            </div>
+          </summary>
+
+          <div class="sectionTitle">脚本正文</div>
+          <div class="lines">
+            <div class="pair hook">
+              <div class="zh">说实话，我以前也买错过三轮车。</div>
+              <div class="vi">Nói thật, trước đây tôi cũng từng mua nhầm xe ba bánh.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">方向把抖，装多了还怕倒。</div>
+              <div class="vi">Tay lái lắc, chở nặng còn sợ lật.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">后来换了这辆，用起来 khác liền。</div>
+              <div class="vi">Sau đó đổi sang chiếc này, dùng khác liền.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">地再不平，跑起来也稳。</div>
+              <div class="vi">Đường trong vườn có xấu mấy, chạy vẫn ổn.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">肥料、咖啡、稻谷，都能拉。</div>
+              <div class="vi">Phân, cà phê, lúa, cái gì cũng chở được.</div>
+            </div>
+
+            <div class="pair">
+              <div class="zh">我现在只后悔一件事，换得太晚。</div>
+              <div class="vi">Giờ tôi chỉ hối hận một điều, đổi xe quá trễ.</div>
+            </div>
+
+            <div class="pair cta">
+              <div class="zh">你现在填一下使用场景，别再像我一样走弯路。</div>
+              <div class="vi">Bạn điền nhu cầu sử dụng, đừng đi đường vòng như tôi nữa.</div>
+            </div>
+          </div>
+
+          <div class="hint">
+            <span class="mono">拍摄要点：</span>“吐槽”一定要像真事（表情、停顿、摇头），中段用烂路行驶稳定镜头做反转证据，结尾CTA温和但明确。
+          </div>
+        </details>
       </div>
+
+      <footer>
+        提示：点击每个标题可折叠/展开；投放用 Lead Form 时，表单字段建议：用途（果园/化肥/咖啡/稻谷）｜地区（省/县）｜预算｜联系电话。
+      </footer>
     </div>
-  </div>
 
-  <!-- Hero：3秒核心卖点 + 主打产品视觉 + CTA -->
-  <header class="hero" id="top">
-    <div class="wrap">
-      <div class="hero-grid">
-        <div class="card">
-          <div class="card-inner">
-            <span class="kicker"><i></i> 一句话核心卖点（3秒让客户懂你卖什么）</span>
-            <h1>
-              304/316 不锈钢厨房水槽 · 防刮耐用 · 10 年质保
-              <span class="cursor" aria-hidden="true"></span>
-            </h1>
-            <p class="sub">
-              适合家庭装修、工程项目、经销批发。主打：材质可靠、工艺扎实、排水不返味、易清洁、售后本地响应。
-              <br/>（把这段替换成你的真实定位/强项）
-            </p>
+    <script>
+      const root = document.documentElement;
+      const cards = document.querySelectorAll("details.script");
+      const copyAllBtn = document.getElementById("copyAllBtn");
+      const copySelectedBtn = document.getElementById("copySelectedBtn");
+      const toggleViBtn = document.getElementById("toggleViBtn");
+      const toggleZhBtn = document.getElementById("toggleZhBtn");
+      const expandAllBtn = document.getElementById("expandAllBtn");
+      const collapseAllBtn = document.getElementById("collapseAllBtn");
 
-            <div class="features" aria-label="核心优势">
-              <div class="f"><b>材质</b><span>304 / 316 / 石英复合</span></div>
-              <div class="f"><b>工艺</b><span>一体拉伸 / 手工焊接</span></div>
-              <div class="f"><b>功能</b><span>防溢水 / 消音垫</span></div>
-              <div class="f"><b>排水</b><span>快排不返味系统</span></div>
-              <div class="f"><b>售后</b><span>质保 + 本地服务</span></div>
-            </div>
+      function getTextFromDetails(detailsEl) {
+        const title = detailsEl.getAttribute("data-title") || "脚本";
+        const pairs = detailsEl.querySelectorAll(".pair");
+        let out = `【${title}】\n`;
+        pairs.forEach((p) => {
+          const zh = p.querySelector(".zh")?.innerText?.trim() || "";
+          const vi = p.querySelector(".vi")?.innerText?.trim() || "";
+          if (!root.classList.contains("hide-zh") && zh) out += zh + "\n";
+          if (!root.classList.contains("hide-vi") && vi) out += vi + "\n";
+          out += "\n";
+        });
+        return out.trim() + "\n\n";
+      }
 
-            <div class="hero-actions">
-              <a class="btn" href="#contact">获取报价（批发/工程）</a>
-              <a class="btn secondary" href="#products">查看主打产品</a>
-              <a class="btn ghost" href="#about">为什么选我们</a>
-            </div>
+      async function copyToClipboard(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          alert("已复制到剪贴板 ✅");
+        } catch (e) {
+          // fallback
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          alert("已复制到剪贴板 ✅（fallback）");
+        }
+      }
 
-            <div class="badges">
-              <span class="badge">支持：台上 / 台下 / 平嵌</span>
-              <span class="badge">交期：现货/定制（按需写）</span>
-              <span class="badge">覆盖：本地/全国/出口（按需写）</span>
-              <span class="badge">咨询：Zalo / WhatsApp / 表单</span>
-            </div>
-          </div>
-        </div>
+      copyAllBtn.addEventListener("click", () => {
+        let text = "电动三轮车｜果农表单广告脚本（3套）\n\n";
+        cards.forEach((c) => (text += getTextFromDetails(c)));
+        copyToClipboard(text.trim());
+      });
 
-        <div class="product-visual">
-          <div class="visual">
-            <div class="wire" aria-hidden="true"></div>
-            <div class="scanlines" aria-hidden="true"></div>
-            <div class="visual-label">
-              <div class="chip"><span class="dot"></span>主打产品视觉区（替换成真实场景图）</div>
-              <div class="chip" style="border-color:rgba(0,229,255,.22);background:rgba(0,229,255,.07)"><span class="dot" style="background:var(--neon1)"></span>1–3款爆款型号</div>
-            </div>
-            <div class="mock-sink" aria-hidden="true"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+      copySelectedBtn.addEventListener("click", () => {
+        // “可见脚本”= 当前展开的 details
+        const opened = Array.from(cards).filter((c) => c.open);
+        const use = opened.length ? opened : Array.from(cards);
+        let text = "电动三轮车｜果农表单广告脚本（当前可见）\n\n";
+        use.forEach((c) => (text += getTextFromDetails(c)));
+        copyToClipboard(text.trim());
+      });
 
-  <!-- ① 网站定位：主次分明 -->
-  <section id="position">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>① 网站定位（先想清楚，不然后面全废）</h2>
-        <p>确认：核心目的 / 目标客户 / 主打档位</p>
-      </div>
-      <div class="hr"></div>
+      toggleViBtn.addEventListener("click", () => {
+        root.classList.toggle("hide-vi");
+      });
 
-      <div class="tri" style="margin-top:12px;">
-        <div class="item">
-          <span class="pill">主目标（建议）</span>
-          <strong style="margin-top:10px;">获取询盘（B2B / 批发 / 工程）</strong>
-          <ul>
-            <li>所有页面都要有“获取报价/联系客服”入口</li>
-            <li>产品页重点放：参数表 + 配件清单 + 价格区间（起）</li>
-            <li>表单字段：姓名/电话/城市/需求（工程/批发/家装）</li>
-          </ul>
-        </div>
+      toggleZhBtn.addEventListener("click", () => {
+        root.classList.toggle("hide-zh");
+      });
 
-        <div class="item">
-          <span class="pill">次目标</span>
-          <strong style="margin-top:10px;">展示品牌形象（可信度）</strong>
-          <ul>
-            <li>关于我们：不是历史，而是“为什么选你”</li>
-            <li>工程案例 + 证书资质：解决信任与背书</li>
-            <li>售后与服务范围：降低下单顾虑</li>
-          </ul>
-        </div>
+      expandAllBtn.addEventListener("click", () => {
+        cards.forEach((c) => (c.open = true));
+      });
 
-        <div class="item">
-          <span class="pill">流量承接（跑广告必备）</span>
-          <strong style="margin-top:10px;">承接广告流量（FB/Google/TikTok）</strong>
-          <ul>
-            <li>落地页=本页结构：3秒卖点 + 爆款 + 优势 + 询盘</li>
-            <li>悬浮联系按钮：随时可点（右下角已放）</li>
-            <li>价格区间：至少“从……起”，别让客户猜</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ② 产品：转化核心 -->
-  <section id="products">
-    <div class="wrap">
-      <div class="section-title">
-        <h2>② 主打产品（转化核心）</h2>
-        <p>每个产品：基础信息 + 图片 + 卖点 + 参数表 + 转化入口</p>
-      </div>
-      <div class="hr"></div>
-
-      <div class="products" style="margin-top:12px;">
-        <!-- 产品 1 -->
-        <div class="p-card">
-          <div class="p-top">
-            <div>
-              <h3 class="p-name">型号：KX-7845（示例）</h3>
-              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
-                <span class="pill p-tag">304 不锈钢</span>
-                <span class="pill">台下/平嵌</span>
-                <span class="pill">780×450 mm</span>
-              </div>
-            </div>
-            <span class="pill" style="border-color:rgba(0,229,255,.22);">爆款</span>
-          </div>
-
-          <div class="p-img" aria-hidden="true"></div>
-
-          <ul class="p-list">
-            <li>防刮耐磨：表面工艺（拉丝/蜂窝）</li>
-            <li>快排不返味：下水系统升级</li>
-            <li>消音防结露：消音垫 + 防冷凝涂层</li>
-            <li><b>价格区间：</b>从 ¥XXX 起（请替换）</li>
-          </ul>
-
-          <div class="p-actions">
-            <a class="btn small" href="#contact">获取批发/工程价</a>
-            <a class="btn small ghost" href="#contact">索要参数表</a>
-          </div>
-        </div>
-
-        <!-- 产品 2 -->
-        <div class="p-card">
-          <div class="p-top">
-            <div>
-              <h3 class="p-name">型号：KX-6842（示例）</h3>
-              <div style="margin-top:8px; display:flex; gap:8px; flex-wrap:wrap;">
-                <span class="pill p-tag">316 不锈钢</span>
-                <span class="pill">台上/台下</span>
-                <span class="pill">680×420 mm</span>
-              </div>
-            </div>
-            <span class="pill" style="border-color:rgba(155,255,90,.25); background:rgba(155,255,90,.06);">耐腐蚀</span>
-          </div>
-
-          <div class="p-img" aria-hidden="true"></div>
-
-          <ul class="p-list">
-            <li>适合沿海/高湿环境：耐腐蚀更强</li>
-            <li>圆角易清洁：油污不易残留</li>
-            <li>配件齐全：沥水篮/砧板（按实际写）</li>
-            <li>
+      collapseAllBtn.addEventListener("click", () => {
+        cards.forEach((c) => (c.open = false));
+      });
+    </script>
+  </body>
+</html>
